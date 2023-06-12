@@ -3,7 +3,7 @@ $title = "Home";
 include "includes/views/components/header.php"; ?>
 <body>
 <main class="pt-[5rem]">
-    <div class="flex justify-center items-center w-full h-screen bg-no-repeat bg-end bg-contain bg-gradient-to-b from-amber-400 via-stone-500 to-neutral-600 xl:bg-[url('includes/images/ufcposter288.png')] items-center sm:bg-cover xl:bg-contain 2xl:bg-contain min-w-[320px] md:bg-center"
+    <div class="flex justify-center items-center w-full h-screen bg-no-repeat bg-end bg-contain bg-gradient-to-b from-amber-400 via-stone-500 to-neutral-600 xl:bg-[url('includes/images/bg289.jpg')] items-center sm:bg-cover xl:bg-contain 2xl:bg-contain min-w-[320px] md:bg-center"
          style="background-size: cover;">
         <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/rankings.php"
            class="text-slate-100 text-4xl md:text-5xl xl:text-7xl font-bold hover:transition duration-300 ease-out
