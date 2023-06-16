@@ -99,27 +99,24 @@ $coin = currency($conn);
             </div>
         </div>
 
-        <div class="headerProfile min-w-[50%] md:min-w-[60%] flex flex-row justify-end items-center h-22 gap-8 font-medium pr-3.5">
+        <div class="headerProfile flex flex-row justify-end items-center h-22 gap-8 font-medium pr-3.5 min-w-[50%] md:min-w-[60%]">
             <div class="flex">
-                <!--                Lietotāja virtuālā nauda-->
+                <!-- Lietotāja virtuālā nauda -->
                 <p id="currency" class="text-white font-semibold" data-currency="<?= $coin ?>">
                     <?= $coin ?>
                 </p>
             </div>
-            <div class="hidden flex md:flex">
-                <!--                Lietotāja vārds-->
-                <?php
-                nickName($conn);
-                ?>
+            <div class="hidden md:flex">
+                <!-- Lietotāja vārds -->
+                <?php nickName($conn); ?>
             </div>
-            <!--            Profila ikona-->
-            <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/profile.php"><i
-                        class="uil uil-user-circle text-4xl font-extralight text-white hover:text-[#e4c065] hover:transition  "></i></a>
-            </svg>
+            <!-- Profila ikona -->
+            <a href="http://into.id.lv/ip19/ralfs/galadarbshelp/profile.php" class="inline-block">
+                <i class="uil uil-user-circle text-4xl text-white hover:text-[#e4c065] hover:scale-110"></i>
+            </a>
             <form method="POST">
-                <!--                Atslēgšanās poga-->
-                <button name="logOut"
-                        class="justify-items-center text-white underline-none hover:text-[#e4c065] hover:underline hover:underline-offset-8 hover:transition duration-300 ease-out hover:scale-110">
+                <!-- Atslēgšanās poga -->
+                <button name="logOut" class="logout-button justify-items-center text-white underline-none hover:text-[#e4c065] hover:underline hover:underline-offset-8 hover:transition duration-300 ease-out transform hover:scale-110">
                     EXIT
                 </button>
             </form>

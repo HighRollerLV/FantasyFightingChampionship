@@ -2,7 +2,7 @@
 
 //Izvēlas datus no tabulas UFC_Single_Event 8 dienu intervālā
 $event = "SELECT * FROM UFC_Single_Event
-WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 8 DAY)
+WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 7 DAY)
 ORDER BY id DESC";
 //Priekš pārbaudēm
 //$event = "SELECT * FROM UFC_Single_Event

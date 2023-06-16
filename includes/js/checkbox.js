@@ -37,7 +37,8 @@ function toggleCheckboxes(checkBoxHome, checkBoxAway, id) {
 // Pogu aktivizēšanas funkcija un informācijas iegūšana par likmi
 function activateButton(id, bet) {
     // Mainīgie un iegūtie dati
-    const buttons = document.querySelectorAll('.currency-btn-' + id);
+    let buttons = document.querySelectorAll('.currency-btn-' + id);
+console.log(buttons);
     let currency = document.getElementById("currency");
     let newCoin = currency.dataset.currency - bet;
     let homeFighter = document.getElementById("checkBoxHome-" + id);
@@ -93,7 +94,8 @@ function activateButton(id, bet) {
 
         // Padod datus uz funkciju, kas ievieto datus datubāzē
         updCoin(bet, fighter, event, koef, mainEv);
-
+ // Pievieno klasi active
+            document.getElementById('bet-' + id + '-' + bet).classList.add('active');
         // Stils priekš pogām, kad ir uzspiestas un kad nav uzspiestas.
         buttons.forEach(button => {
             button.disabled = true;
@@ -101,6 +103,7 @@ function activateButton(id, bet) {
             if (button.classList.contains('active')) {
                 button.classList.add('bg-[#e4c065]');
                 button.classList.add('text-[#4E4E4E]');
+            	console.log(button);
             } else {
                 // Pievieno sarkanu ikonu, ja nav uzspiesta poga
                 button.classList.add('relative', 'inline-flex', 'items-center', 'justify-center', 'px-4', 'py-2');
@@ -109,8 +112,7 @@ function activateButton(id, bet) {
                 icon.classList.add('uil', 'uil-ban', 'text-red-500');
                 button.appendChild(icon);
             }
-            // Pievieno klasi active
-            document.getElementById('bet-' + id + '-' + bet).classList.add('active');
+           
         });
 
         // Paziņojums par veiksmīgu likmi un stils
