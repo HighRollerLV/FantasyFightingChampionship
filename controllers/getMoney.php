@@ -27,7 +27,7 @@ if ($result->num_rows === 0) {
         $figId = $fighterNameResult['fig_id'];
         $fighterNameStmt->close();
 
-        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ? AND `date` >= CURDATE() - INTERVAL 12 DAY AND `date` <= CURDATE() + INTERVAL 6 DAY");
+        $result2 = $conn->prepare("SELECT * FROM ufcResults WHERE eventId = ? AND singleEventId = ? AND `date` >= CURDATE() - INTERVAL 7 DAY AND `date` <= CURDATE() + INTERVAL 7 DAY");
         $result2->bind_param("ii", $mainEv, $row['SingleEventId']);
         $result2->execute();
         $result2 = $result2->get_result();
@@ -39,7 +39,7 @@ if ($result->num_rows === 0) {
                 $fightWinner = $row2['fightWinner'];
                 $calculate = intval($koef * $betAmount / 20);
 
-                if ($row['paid'] == 0) {
+                if ($row['paid'] == 0 && $fightWinner == $figId) {
                     $updateStmt = $conn->prepare("UPDATE loginhelp SET currency = currency + ? WHERE id = ?");
                     $updateStmt->bind_param("ii", $calculate, $userID);
                     $updateResult = $updateStmt->execute();
@@ -54,6 +54,7 @@ if ($result->num_rows === 0) {
                 }
 
                 $outcome = ($fightWinner == $figId) ? 'Won' : 'Lost';
+//                echo $fightWinner. " " . $figId;
                 $amountReceived = ($outcome == 'Won') ? abs($calculate) : 0;
                 $fightRounds = $row2['fightRounds'];
                 $finalRound = $row2['finalRound'];

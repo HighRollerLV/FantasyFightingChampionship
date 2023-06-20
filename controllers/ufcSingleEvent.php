@@ -6,7 +6,7 @@ WHERE eventDate >= CURDATE() AND eventDate <= DATE_ADD(CURDATE(), INTERVAL 7 DAY
 ORDER BY id DESC";
 //Priekš pārbaudēm
 //$event = "SELECT * FROM UFC_Single_Event
-//WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 20 DAY) AND eventDate <= CURDATE()
+//WHERE eventDate >= DATE_SUB(CURDATE(), INTERVAL 7 DAY) AND eventDate <= CURDATE()
 //ORDER BY id DESC";
 $stmt = $conn->prepare($event);
 

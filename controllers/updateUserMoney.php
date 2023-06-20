@@ -45,7 +45,7 @@ if (isset($_POST['getResult'])) {
                 // Aprēķina likmes izmaksu. Koeficients reizināts ar likmes daudzumu un dalīts ar 20
                 $calculate = intval($koef * $betAmount / 20);
                 // Ja rinda paid = 0, tad izpilda kodu
-                if ($row['paid'] == 0) {
+                if ($row['paid'] == 0 && $fightWinner == $figId) {
                     // Atjaunina lietotāja tobrīdējo naudas daudzumu ar aprēķināto likmes izmaksu
                     $updateStmt = $conn->prepare("UPDATE loginhelp SET currency = currency + ? WHERE id = ?");
                     $updateStmt->bind_param("ii", $calculate, $userID);
