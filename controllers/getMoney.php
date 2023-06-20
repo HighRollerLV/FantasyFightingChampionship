@@ -38,7 +38,7 @@ if ($result->num_rows === 0) {
             while ($row2 = $result2->fetch_assoc()) {
                 $fightWinner = $row2['fightWinner'];
                 $calculate = intval($koef * $betAmount / 20);
-
+                // Ja ir uzvarējis un nav izmaksāts tad izmaksā naudu un atzīmē ka ir izmaksāts
                 if ($row['paid'] == 0 && $fightWinner == $figId) {
                     $updateStmt = $conn->prepare("UPDATE loginhelp SET currency = currency + ? WHERE id = ?");
                     $updateStmt->bind_param("ii", $calculate, $userID);
